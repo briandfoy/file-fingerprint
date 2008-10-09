@@ -1,0 +1,9 @@
+*.bak
+*.old
+pm_to_blib
+*.gz
+Makefile
+blib
+.svn
+CVS
+cover_db
