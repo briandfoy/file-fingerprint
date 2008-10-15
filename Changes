@@ -1,0 +1,4 @@
+0.10_01 - Wed Oct 15 13:21:02 2008
+	* Initial release of a file to collect certain file meta-data
+	so it can check if two files are the same
+
