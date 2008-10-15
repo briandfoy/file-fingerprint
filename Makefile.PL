@@ -13,7 +13,12 @@ WriteMakefile(
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
 	
 	'PREREQ_PM'    => { 
-		'Test::More' => '0',
+		'Test::More'   => '0',
+		'Test::Output' => '0',
+		File::MMagic   => '0',
+#		File::MimeInfo => '0',
+		Digest::CRC    => '0',
+		MD5            => '0',		
 		},
 
 	'PM'           => {
