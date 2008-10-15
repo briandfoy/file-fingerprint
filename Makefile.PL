@@ -3,11 +3,11 @@ use ExtUtils::MakeMaker;
 
 require 5.006;
 
-eval "use Test::Manifest 1.14";
+eval "use Test::Manifest 1.21";
 
 WriteMakefile(
 	'NAME'	       => 'File::Fingerprint',
-	'ABSTRACT'     => 'This is what the module does',
+	'ABSTRACT'     => 'Collect meta data about a file',
 	'VERSION_FROM' => 'lib/Fingerprint.pm',
 	'LICENSE'      => 'perl',
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
