@@ -1,4 +1,3 @@
-# $Id$
 package File::Fingerprint;
 use strict;
 
