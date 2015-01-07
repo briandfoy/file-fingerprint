@@ -2,7 +2,7 @@ require 5.008;
 use strict;
 use warnings;
 
-my $github    = 'https://github.com/briandfoy/';
+my $github    = 'https://github.com/briandfoy/file-fingerprint';
 my $main_file = 'lib/File/Fingerprint.pm';
 
 my %WriteMakefile = (
@@ -13,12 +13,27 @@ my %WriteMakefile = (
 	'AUTHOR'        => 'brian d foy <bdfoy@cpan.org>',
 	
 	'PREREQ_PM'    => { 
-		'Test::More'   => '0',
-		'Test::Output' => '0',
-		File::MMagic   => '0',
-#		File::MimeInfo => '0',
-		Digest::CRC    => '0',
-		MD5            => '0',		
+		'Test::More'     => '0',
+		'Test::Output'   => '0',
+		'File::MMagic'   => '0',
+#		'File::MimeInfo' => '0',
+		'Digest::CRC'    => '0',
+		'MD5'            => '0',		
+		},
+
+	'META_MERGE' => {
+		'meta-spec' => { version => 2 },
+		resources => {
+			repository => {
+				type => 'git',
+				url  => "$github.git",
+				web  => $github,
+				},
+			bugtraker => {
+				web    => "$github/issues",
+				},
+			homepage => $github,
+			},
 		},
 
 	clean  => { FILES    => q|File-Fingerprint-*| },
