@@ -2,11 +2,14 @@ require 5.008;
 use strict;
 use warnings;
 
+use File::Spec::Functions qw(catfile);
+
+my $module    = 'File::Fingerprint';
 my $github    = 'https://github.com/briandfoy/file-fingerprint';
-my $main_file = 'lib/File/Fingerprint.pm';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'	        => 'File::Fingerprint',
+	'NAME'	        => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'       => 'perl',
@@ -37,7 +40,6 @@ my %WriteMakefile = (
 		},
 
 	clean  => { FILES    => q|File-Fingerprint-*| },
-
 	);
 
 sub arguments { \%WriteMakefile }
