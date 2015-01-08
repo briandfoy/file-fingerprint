@@ -1,10 +1,12 @@
 require 5.008;
+
+package File::Fingerprint;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = 'File::Fingerprint';
+my $module    = __PACKAGE__;
 my $github    = 'https://github.com/briandfoy/file-fingerprint';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
