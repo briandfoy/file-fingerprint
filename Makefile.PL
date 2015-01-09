@@ -1,12 +1,10 @@
 require 5.008;
-
-package File::Fingerprint;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = __PACKAGE__;
+my $module    = 'File::Fingerprint';
 my $github    = 'https://github.com/briandfoy/file-fingerprint';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
@@ -16,10 +14,21 @@ my %WriteMakefile = (
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'       => 'perl',
 	'AUTHOR'        => 'brian d foy <bdfoy@cpan.org>',
-	
-	'PREREQ_PM'    => { 
-		'Test::More'     => '0',
-		'Test::Output'   => '0',
+
+	'CONFIGURE_REQUIRES' => {
+		'ExtUtils::MakeMaker'   => '6.64',
+		'File::Spec::Functions' => '0',
+		},
+
+	'BUILD_REQUIRES' => {
+		},
+
+	'TEST_REQUIRES' => {
+		'Test::More'   => '0.95',
+		'Test::Output' => '0',
+		},
+
+	'PREREQ_PM'     => {
 		'File::MMagic'   => '0',
 #		'File::MimeInfo' => '0',
 		'Digest::CRC'    => '0',
@@ -54,7 +63,7 @@ sub do_it {
 		eval{ "$MM " . $WriteMakefile{'CONFIGURE_REQUIRES'}{'ExtUtils::MakeMaker'} }
 			//
 		"$MM 6.64";
-	eval "use $MM_version" || die "Could not load $MM_version: $@";
+	eval "use $MM_version; 1" or die "Could not load $MM_version: $@";
 	eval "use Test::Manifest 1.21" 
 		if -e File::Spec->catfile( qw(t test_manifest) );
 	WriteMakefile( %WriteMakefile );
