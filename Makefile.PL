@@ -52,7 +52,7 @@ my %WriteMakefile = (
 			},
 		},
 
-	clean  => { FILES    => q|File-Fingerprint-*| },
+	clean => { FILES => "$dist-*" },
 	);
 
 sub arguments { \%WriteMakefile }
