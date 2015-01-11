@@ -1,0 +1,16 @@
+.travis.yml
+Changes
+examples/file_fingerprint.pl
+lib/File/Fingerprint.pm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MYMETA.json
+MYMETA.yml
+README.pod
+t/load.t
+t/pod.t
+t/pod_coverage.t
+t/roll.t
+t/test_manifest
+xt/changes.t
