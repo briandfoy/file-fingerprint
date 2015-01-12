@@ -13,7 +13,7 @@ $VERSION = '0.10_01';
 
 =head1 NAME
 
-File::Fingerprint - This is the description
+File::Fingerprint - Identify a file by its checksums and other attributes
 
 =head1 SYNOPSIS
 
