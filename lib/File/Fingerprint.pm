@@ -11,6 +11,8 @@ use Carp;
 
 $VERSION = '0.10_01';
 
+=encoding utf8
+
 =head1 NAME
 
 File::Fingerprint - Identify a file by its checksums and other attributes
@@ -20,7 +22,7 @@ File::Fingerprint - Identify a file by its checksums and other attributes
 	use File::Fingerprint;
 
 	my $fingerprint = File::Fingerprint->roll( $file );
-	
+
 =head1 DESCRIPTION
 
 =over 4
@@ -34,18 +36,18 @@ File::Fingerprint - Identify a file by its checksums and other attributes
 sub roll
 	{
 	my( $class, $file ) = @_;
-	
+
 	unless( -e $file )
 		{
 		carp "File [$file] does not exist! Can't fingerprint it";
 		return;
 		}
-		
+
 	my $self = bless { file => $file }, $class;
-	
+
 	$self->init;
 	}
-	
+
 =item init
 
 =cut
@@ -66,33 +68,33 @@ my %Prints = (
 	crc32     => sub { require Digest::CRC; my $ctx = Digest::CRC->new( type => 'crc32' ); open my($fh), "<", $_[0]->file; $ctx->addfile( $fh ); $ctx->hexdigest; },
 	basename  => sub { require File::Basename; File::Basename::basename( $_[0]->file ) },
 	);
-	
+
 sub init
 	{
 	my( $self ) = shift;
-	
+
 	print "File is ", $self->file, "\n";
-	
+
 	foreach my $print ( keys %Prints )
 		{
 		$self->{$print} = eval { $self->$print() };
 		carp "Error is $@\n" if $@;
 		}
-	
+
 	return $self;
 	}
 
 sub AUTOLOAD
 	{
-	our $AUTOLOAD;	
-	
+	our $AUTOLOAD;
+
 	( my $method = $AUTOLOAD ) =~ s/.*:://;
-	
+
 	carp "No such method as $AUTOLOAD" unless exists $Prints{$method};
-	
+
 	return $_[0]->{$method} || $Prints{$method}->( $_[0] );
 	}
-	
+
 }
 
 sub DESTROY { 1 }
@@ -115,11 +117,11 @@ instance, C<text/plain>.
 
 =item basename
 
-Returns the basename of the file. 
+Returns the basename of the file.
 
 =item extension
 
-Returns the file extensions as an array reference. 
+Returns the file extensions as an array reference.
 
 For instance, F<stable.tar.gz> returns C<[ qw(tar gz) ]>.
 
