@@ -45,6 +45,6 @@ stderr_like
 	qr/does not exist/,
 	"Fails for missing file"
 	;
-	
+
 }
 
