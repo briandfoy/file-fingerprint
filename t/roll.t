@@ -23,7 +23,7 @@ my $print = $class->$method( $file );
 isa_ok( $print, $class );
 
 # methods that should exist
-is( $print->lines,             5, "Right line count for $file" );
+is( $print->lines,             4, "Right line count for $file" );
 is( $print->mmagic, 'text/plain', "Right MIME type for $file" );
 
 # methods that do not exist
