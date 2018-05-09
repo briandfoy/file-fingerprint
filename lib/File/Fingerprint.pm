@@ -33,12 +33,10 @@ File::Fingerprint - Identify a file by its checksums and other attributes
 
 =cut
 
-sub roll
-	{
+sub roll {
 	my( $class, $file ) = @_;
 
-	unless( -e $file )
-		{
+	unless( -e $file ) {
 		carp "File [$file] does not exist! Can't fingerprint it";
 		return;
 		}
@@ -69,14 +67,12 @@ my %Prints = (
 	basename  => sub { require File::Basename; File::Basename::basename( $_[0]->file ) },
 	);
 
-sub init
-	{
+sub init {
 	my( $self ) = shift;
 
 	print "File is ", $self->file, "\n";
 
-	foreach my $print ( keys %Prints )
-		{
+	foreach my $print ( keys %Prints ) {
 		$self->{$print} = eval { $self->$print() };
 		carp "Error is $@\n" if $@;
 		}
@@ -84,8 +80,7 @@ sub init
 	return $self;
 	}
 
-sub AUTOLOAD
-	{
+sub AUTOLOAD {
 	our $AUTOLOAD;
 
 	( my $method = $AUTOLOAD ) =~ s/.*:://;
