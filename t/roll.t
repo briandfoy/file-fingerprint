@@ -49,6 +49,6 @@ stderr_like
 stderr_like
 	{ eval{ $class->$method($file) } }
 	qr/does not exist/,
-	"File $file does not exists"
+	"File $file does not exist"
 	;
 }
