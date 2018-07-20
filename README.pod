@@ -10,7 +10,7 @@
 
 =for HTML <a href="https://github.com/briandfoy/file-fingerprint/blob/master/LICENSE"><img src="https://img.shields.io/cpan/l/File-Fingerprint.svg" /></a>
 
-=for HTML <a href="http://www.metacpan.org/module/File::Fingerprint"><img src="https://img.shields.io/cpan/v/File-Fingerprint.svg" /></A>
+=for HTML <a href="https://metacpan.org/pod/File::Fingerprint"><img src="https://img.shields.io/cpan/v/File-Fingerprint.svg" /></A>
 
 =head1 The File::Fingerprint module
 
@@ -23,7 +23,7 @@ read one again for any Perl module.
 
 To read about L<File::Fingerprint>, look at the embedded documentation
 in the module itself. Inside the distribution, you can format it
-with L<perldoc|http://perldoc.perl.org/perldoc.html>:
+with L<perldoc|https://perldoc.perl.orgperldoc.html>:
 
 	% perldoc lib/File/Fingerprint.pm
 
@@ -33,7 +33,7 @@ name instead of the file location:
 	% perldoc File::Fingerprint
 
 You can read the documentation and inspect the meta data at
-L<MetaCPAN|http://www.metacpan.org/module/File::Fingerprint>.
+L<MetaCPAN|https://metacpan.org/pod/File::Fingerprint>.
 
 The standard module documentation has example uses in the SYNOPSIS
 section, but you can also look in the I<examples/> directory (if it's
