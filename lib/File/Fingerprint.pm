@@ -150,7 +150,7 @@ Returns the CRC-32 checksum of the file.
 
 This source is in Github
 
-	git://github.com/briandfoy/file-fingerprint.git
+	https://github.com/briandfoy/file-fingerprint.git
 
 =head1 AUTHOR
 
